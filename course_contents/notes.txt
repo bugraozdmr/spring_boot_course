@@ -1,0 +1,51 @@
+gereklilikler nerden geliyor ?
+https://start.spring.io/
+
+Main => file => close project ile ana sayfaya gidiyor !!!
+
+
+Maven algılamıyor bazen intellij sağdaki M'e tıkla mvn işareti o ordan refreshe git
+Sync all maven projects diyicen
+
+"Could not acquire lock(s)" hatası mvn meşgül demektir
+
+ps aux | grep maven
+kill -9 <PID>
+
+
+## mvn önbelleği temizleme (dursun diye bıraktım)
+mvn dependency:purge-local-repository
+
+# clean install (dursun diye bıraktım)
+mvn clean install
+
+uzun uğraşlar sonucu mvn yükleme vs.
+çalıştırılcak dosyaya sağ tıkla run et ... oldu
+
+
+## intellij'de mesela paket isimleri vs. hep birleştirilmiş aslında ayrı ayrılar dikkat
+
+paket olusutururken vs.dikkat et
+
+bir.iki.uc.dort gibi
+
+## ana sınıf hep belirtilen klosorde zaten geliyor sonra burda paketler tanımla ayırmak için dikkat !!
+
+o ayarlıyor gidilecek yerleri
+
+## dev-tools ile değişiklik sonrası yeniden uygulamayı çalıştırmaya gerek kalmıyor
+intellij için
+build,execution .. => compiler => build project automatically
+sonra
+advanced Settings => allow auto-make to start even if developed ... // compiler altında baslik olarak
+
+sonra pom.xml'e 
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+</dependency>
+
+ekle ve mavendan sync yap
+
+artık save sonrası oto günceller
