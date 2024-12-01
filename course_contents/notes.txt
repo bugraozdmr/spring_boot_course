@@ -95,3 +95,5 @@ daha var başka başka
 @Component yerine kullanma sebebi 3rd party bir dosya için @Component kullanamazsın bundan @Bean olması için bunu vermen gerek
 
 bu tarz servisleri projemize eklememiz gerekiyorsa güzel çözüm
+
+### DB için hazır sql ekledim dosyalara onu sql olarak çalıştır mysql
