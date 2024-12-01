@@ -75,3 +75,23 @@ Option 2: Use Spring Boot Maven plugin
 • mvnw spring-boot:run // bu sh buna bak sonra
 
 java -jar mycoolapp.jar gibi
+
+
+### BEAN SCOPES
+
+spring Container creates only one instance of the bean, by default
+• All dependency injections for the bean
+• will reference the SAME bean
+
+Prototype scope farklı farklı beanler
+
+Default scope singleton
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+
+daha var başka başka
+
+## @Bean anotation kullanmak
+
+@Component yerine kullanma sebebi 3rd party bir dosya için @Component kullanamazsın bundan @Bean olması için bunu vermen gerek
+
+bu tarz servisleri projemize eklememiz gerekiyorsa güzel çözüm
