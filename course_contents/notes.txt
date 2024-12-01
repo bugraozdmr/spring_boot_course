@@ -49,3 +49,29 @@ sonra pom.xml'e
 ekle ve mavendan sync yap
 
 artık save sonrası oto günceller
+
+monitorleme
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+çalıştırınca görürsün
+2024-11-30T19:34:38.155+03:00  INFO 11336 --- [coolapp] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+
+
+sadece spring security eklersen sana şifre verir konsolda şu tarz
+
+60182779-4e71-4126-9b7d-a0fa58a43c39
+
+erişmek istersen bu properties'deki endpointlere giriş yap der
+
+username : user
+
+---
+Option 1: Use java -jar
+Option 2: Use Spring Boot Maven plugin
+• mvnw spring-boot:run // bu sh buna bak sonra
+
+java -jar mycoolapp.jar gibi
