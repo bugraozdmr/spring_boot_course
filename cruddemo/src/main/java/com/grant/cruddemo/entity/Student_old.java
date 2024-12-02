@@ -2,8 +2,8 @@ package com.grant.cruddemo.entity;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "student")
+//@Entity
+//@Table(name = "student")
 public class Student_old {
 
     // define fields
