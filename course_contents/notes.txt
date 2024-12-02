@@ -97,3 +97,10 @@ daha var başka başka
 bu tarz servisleri projemize eklememiz gerekiyorsa güzel çözüm
 
 ### DB için hazır sql ekledim dosyalara onu sql olarak çalıştır mysql
+
+## Customer Relationship Manager (CRM) App
+
+
+TODO : GLOBAL EXCEPTION HANDLER FOR SPRING bu int ararken dsadas vermek gibi linke
+
+Custom exemption classlar vs.
