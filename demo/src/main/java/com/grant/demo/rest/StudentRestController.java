@@ -42,29 +42,5 @@ public class StudentRestController {
         return this.students.get(studentId);
     }
 
-    // bu sadece StudentNotFoundException yakalar
-    @ExceptionHandler
-    public ResponseEntity<StudentErrorResponse> handlerException(StudentNotFoundException exp) {
 
-        StudentErrorResponse error = new StudentErrorResponse();
-
-        error.setStatus(HttpStatus.NOT_FOUND.value());
-        error.setMessage(exp.getMessage());
-        error.setTimeStamp(System.currentTimeMillis());
-
-        return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
-    }
-
-    // bu genel exception yakalar
-    @ExceptionHandler
-    public ResponseEntity<StudentErrorResponse> handlerException(Exception exp) {
-        StudentErrorResponse error = new StudentErrorResponse();
-
-        //  ./dasod gibi burda ozel exception yazabilirsin yazda kullanıcıya bilgi verme guvenlik acigidir
-        error.setStatus(HttpStatus.BAD_REQUEST.value());
-        error.setMessage(exp.getMessage());
-        error.setTimeStamp(System.currentTimeMillis());
-
-        return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
-    }
 }
