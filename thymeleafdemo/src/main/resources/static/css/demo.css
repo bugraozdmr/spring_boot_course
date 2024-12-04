@@ -1,0 +1,73 @@
+.funny {
+    font-style: italic;
+    color: green;
+}
+
+/* Form container */
+.form-container {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: auto;
+}
+
+/* Title */
+.form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Radio button container */
+.radio-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Hidden radio button */
+.radio-input {
+    display: none;
+}
+
+/* Custom label style */
+.radio-label {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1rem;
+}
+
+/* Hover effect */
+.radio-label:hover {
+    background-color: #e0e0e0;
+}
+
+/* Selected state */
+.radio-input:checked + .radio-label {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Submit button */
+.submit-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}

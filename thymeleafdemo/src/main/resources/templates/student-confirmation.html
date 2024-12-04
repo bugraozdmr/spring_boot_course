@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Confirmation</title>
+</head>
+<body>
+    <h2>Student Confirmation</h2>
+    <!-- Cals getFirstName and getLastName -->
+    <p th:utext="'Dear ' + ${student.firstName} + ' ' + ${student.lastName} + ' from ' + ${student.country}"></p>
+    <p th:utext="'<br />Favorite Programming Language: ' + ${student.favoriteLanguage}"></p>
+    <p th:utext="'<br />Favorite Operating System: '"></p>
+    <ul>
+        <li th:each="system : ${student.favoriteSystem}" th:text="${system}"></li>
+    </ul>
+    <!-- Bu liste olmadı -->
+
+
+
+    You've been confirmed.
+</body>
+</html>

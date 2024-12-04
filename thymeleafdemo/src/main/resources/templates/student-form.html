@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          th:href="@{/css/demo.css}">
+    <title>Student Registration Form</title>
+</head>
+<body>
+    <form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
+        First Name : <input type="text" th:field="*{firstName}">
+        <br><br>
+        Last Name : <input type="text" th:field="*{lastName}">
+        <br><br>
+        <select th:field="*{country}">
+            <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}" />
+        </select>
+        <br><br>
+
+        Favorite Programming Language
+        <div th:each="language : ${languages}" class="radio-container">
+            <input type="radio" th:field="*{favoriteLanguage}" th:value="${language}" th:id="'language_' + ${language}" class="radio-input" />
+            <label th:for="'language_' + ${language}" th:text="${language}" class="radio-label">${language}</label>
+        </div>
+
+        <p>Favorite Operating System:</p>
+        <div th:each="system : ${systems}">
+            <input type="checkbox" th:field="*{favoriteSystem}" th:value="${system}" th:id="'system_' + ${system}" />
+            <label th:for="'system_' + ${system}" th:text="${system}"></label>
+        </div>
+
+
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
