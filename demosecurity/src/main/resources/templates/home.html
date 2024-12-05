@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+<body class="bg-light">
+<!-- Oto algılar security -->
+<div class="position-absolute top-0 end-0 p-3">
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn btn-danger">Çıkış Yap</button>
+    </form>
+</div>
+
+<!-- Navigation Links at the Top -->
+<div class="position-absolute top-0 start-0 p-3 d-flex">
+    <div sec:authorize="hasRole('MANAGER')">
+        <a th:href="@{/leaders}" class="btn btn-outline-primary me-3">Leadership Meeting</a>
+    </div>
+    <div sec:authorize="hasRole('ADMIN')">
+        <a th:href="@{/systems}" class="btn btn-outline-secondary">IT Systems Meeting</a>
+    </div>
+</div>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+        <h1 class="display-4 fw-bold text-primary">Hoş Geldiniz, <span sec:authentication="principal.username"></span>!</h1>
+        <h4><span sec:authentication="principal.authorities"></span></h4>
+        <p class="lead text-secondary">Bootstrap ile oluşturulan harika bir ana sayfa!</p>
+    </div>
+</div>
+</body>
+</html>
