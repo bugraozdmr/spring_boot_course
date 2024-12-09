@@ -1,10 +1,14 @@
 package com.grant.cruddemo.dao;
 
+import com.grant.cruddemo.entity.Course;
 import com.grant.cruddemo.entity.Instructor;
 import com.grant.cruddemo.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Repository
 public class AppDAOImpl implements AppDAO{
@@ -51,5 +55,32 @@ public class AppDAOImpl implements AppDAO{
 
         // artık bunu silince instructor'da gider
         entityManager.remove(instructorDetail);
+    }
+
+    @Override
+    public List<Course> findCoursesByInstructorId(int id) {
+        // create query
+        TypedQuery<Course> query = entityManager.createQuery(
+                "from Course where instructor.id = :data", Course.class);
+        query.setParameter("data", id);
+
+        // execute query
+        List<Course> courses = query.getResultList();
+
+        return courses;
+    }
+
+    @Override
+    public Instructor findInstructorByIdJoinFetch(int id) {
+        // even with Lazy => this'l work like eager
+        TypedQuery<Instructor> query = entityManager.createQuery(
+                                "select i from Instructor i " +
+                                        "JOIN FETCH i.courses " +
+                                        "JOIN FETCH i.instructorDetail " +
+                                        "where i.id = :data",Instructor.class);
+
+        query.setParameter("data",id);
+        Instructor instructor = query.getSingleResult();
+        return instructor;
     }
 }

@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "instructor")
 @Data
@@ -23,6 +26,13 @@ public class Instructor {
     @Column(name = "email")
     private String email;
 
+    // course tarafinda instructor var oraya maplendi
+    // default type = LAZY -- lazy surekli hata adlı maalesef
+    @OneToMany(mappedBy = "instructor",
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    private List<Course>  courses;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
@@ -31,5 +41,15 @@ public class Instructor {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    public void add(Course course) {
+        if(courses == null) {
+            courses = new ArrayList<>();
+        }
+
+        courses.add(course);
+
+        course.setInstructor(this);
     }
 }

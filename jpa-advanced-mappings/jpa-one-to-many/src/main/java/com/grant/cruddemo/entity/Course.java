@@ -20,8 +20,8 @@ public class Course {
 
     // toString'te istemiyoruz -- remove haric cascadeler
     @ToString.Exclude
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE,
-            CascadeType.DETACH,CascadeType.REFRESH})
+    // Instructor ile Many-to-One ilişki
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
